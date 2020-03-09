@@ -27,12 +27,11 @@ endfunction
 " TODO|DONE: Generate all mappings for different opening modes
 " TODO: Generate all functions for different opening modes
 
-
 function! s:SetupMappings()
-    let l:dict = {'T':'tab drop', 'S':'split', 'V':'vsplit'}
+    let l:dict = {'e':'edit', 't':'tab drop', 's':'split', 'v':'vsplit'}
     for l:key in keys(l:dict)
-        exec "nnoremap <Plug>(".l:key."OpenScratch) :call <SID>OpenScratch('n', '".l:dict[l:key]."')<cr>"
-        exec "vnoremap <Plug>(".l:key."OpenScratchVisual) :call <SID>OpenScratch('v', '".l:dict[l:key]."')<cr>"
+        exec "nnoremap <Plug>(open-scratch-".l:key.") :call <SID>OpenScratch('n', '".l:dict[l:key]."')<cr>"
+        exec "vnoremap <Plug>(open-scratch-visual-".l:key.") :call <SID>OpenScratch('v', '".l:dict[l:key]."')<cr>"
     endfor
 endfunction
 call <SID>SetupMappings()
