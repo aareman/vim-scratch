@@ -9,6 +9,7 @@ endif
 
 function! s:OpenScratch(mode, open_command)
     let l:ext = input("File Ext: ")
+    norm! :<esc>
     if l:ext == ''
         let l:ext=expand("%:e")
     endif
@@ -22,6 +23,7 @@ function! s:OpenScratch(mode, open_command)
         norm! "ap
         let @a=l:save_a
     endif
+    redraw!
 endfunction
 
 " TODO|DONE: Generate all mappings for different opening modes

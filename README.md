@@ -58,3 +58,4 @@ This plugin provides key mappings for
 <Plug>(open-scratch-visual-t)
 ```
 
+Tip - make sure to use `nmap` and `vmap` instead of `nnoremap` and `vnoremap`.
