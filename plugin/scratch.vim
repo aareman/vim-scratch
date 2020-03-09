@@ -1,7 +1,7 @@
-if exists("g:vim_scratch_loaded")
-    finish
-endif
-let g:vim_scratch_loaded = 1
+" if exists("g:vim_scratch_loaded")
+"     finish
+" endif
+" let g:vim_scratch_loaded = 1
 
 if !exists("g:scratches_dir")
     let g:scratches_dir = '~/.vim/vim-scratches'
@@ -9,19 +9,18 @@ endif
 
 function! s:OpenScratch(mode, open_command)
     let l:ext = input("File Ext: ")
-    norm! :<esc>
     if l:ext == ''
         let l:ext=expand("%:e")
     endif
     if a:mode == 'v'
         let l:save_a=@a
-        norm! gv"ay
-        norm! :<esc>
+        norm! gv"ay<c-c>
     endif
     exec a:open_command.' '.g:scratches_dir.'/scratch.'.l:ext
+    norm! <c-c>
 
     if a:mode == 'v'
-        norm! "ap
+        norm! G"ap
         let @a=l:save_a
     endif
     redraw!
