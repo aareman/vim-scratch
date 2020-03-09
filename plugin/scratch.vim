@@ -16,6 +16,7 @@ function! s:OpenScratch(mode, open_command)
     if a:mode == 'v'
         let l:save_a=@a
         norm! gv"ay
+        norm! :<esc>
     endif
     exec a:open_command.' '.g:scratches_dir.'/scratch.'.l:ext
 
