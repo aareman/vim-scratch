@@ -1,7 +1,7 @@
-if exists("g:scratch_loaded")
+if exists("g:vim_scratch_loaded")
     finish
 endif
-let g:scratch_loaded = 1
+let g:vim_scratch_loaded = 1
 
 if !exists("g:scratches_dir")
     let g:scratches_dir = '~/.vim/vim-scratches'
